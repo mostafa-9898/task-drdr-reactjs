@@ -30,15 +30,18 @@ const CartPage = () => {
             <nav className="p-4 bg-slate-300">
 
                 {/* ------ menu button ------ */}
-                <div className='cursor-pointer' onClick={goToProduct}>
-                    <IoIosArrowForward size={22} />
+                <div>
+                    <IoIosArrowForward size={22}
+                        onClick={goToProduct}
+                        style={{ cursor: "pointer" }}
+                    />
                 </div>
 
             </nav>
 
 
             {/* --------------- content --------------- */}
-            <section className='px-5'>
+            <section className='px-5 max-h-[600px] min-h-[600px] overflow-auto'>
 
                 {/* ------ header ------ */}
                 <header className='py-10'>
@@ -47,24 +50,26 @@ const CartPage = () => {
 
 
                 {/* ------ products list ------ */}
-                {state?.selected?.map(item => <CartProduct key={item.id} product={item} />)}
-
-
-                {/* --------------- buttons --------------- */}
-                <div className='flex gap-6 pt-14'>
-                    <button className='w-full py-3 text-lg font-medium text-white bg-purple-800 disabled:opacity-30 rounded-2xl'
-                        disabled={state.selected.length < 1}
-                    >
-                        ادامه خرید
-                    </button>
-                    <button className='w-full py-3 text-lg font-medium border-2 border-gray-400 disabled:opacity-30 rounded-2xl'
-                        disabled={state.selected.length < 1}
-                    >
-                        حذف سبد
-                    </button>
-                </div>
+                <section className=''>
+                    {state?.selected?.map(item => <CartProduct key={item.id} product={item} />)}
+                </section>
 
             </section>
+
+
+            {/* --------------- buttons --------------- */}
+            <div className='flex gap-6'>
+                <button className='w-full py-3 text-lg font-medium text-white bg-purple-800 disabled:opacity-30 rounded-2xl'
+                    disabled={state.selected.length < 1}
+                >
+                    ادامه خرید
+                </button>
+                <button className='w-full py-3 text-lg font-medium border-2 border-gray-400 disabled:opacity-30 rounded-2xl'
+                    disabled={state.selected.length < 1}
+                >
+                    حذف سبد
+                </button>
+            </div>
         </>
     );
 }

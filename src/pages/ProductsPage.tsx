@@ -65,17 +65,15 @@ const ProductsPage = () => {
 
 
             {/* --------------- content --------------- */}
-            <section className="p-5 min-h-[600px] flex flex-col justify-between">
-
+            <section className="p-5 max-h-[600px] min-h-[600px] flex flex-col gap-5 overflow-auto">
                 {data?.map((item) => <Product key={item.id} product={item} />)}
-
-                <button className="w-full py-4 text-xl font-normal text-white bg-purple-800 rounded-xl"
-                    onClick={cartHandler}
-                >
-                    تکمیل خرید
-                </button>
-
             </section>
+
+            <button className="w-full py-4 text-xl font-normal text-white bg-purple-800 rounded-xl"
+                onClick={cartHandler}
+            >
+                تکمیل خرید
+            </button>
         </>
     );
 }
